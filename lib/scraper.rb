@@ -25,7 +25,8 @@ class Scraper
     game.minplaytime = @doc.css('minplaytime')[0]['value'] 
     game.maxplaytime = @doc.css('maxplaytime')[0]['value'] 
     game.minage = @doc.css('minage')[0]['value'] 
-    # game.category = @doc.css('link').select{|link| link[0]['type'] == 'boardgamecategory'} 
+    game.category = @doc.css('link').select{|link| link['type']=="boardgamecategory"}.collect{|link| link['value']}
+    game.mechanic = @doc.css('link').select{|link| link['type']=="boardgamemechanic"}.collect{|link| link['value']}
             # @category = ["cat1","cat2"]
             # @mechanic = ["mech1","mech2"]
             # @publisher = ["pub1", "pub2"]
