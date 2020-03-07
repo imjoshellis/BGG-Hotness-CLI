@@ -132,6 +132,7 @@ class CommandLineInterface
     end
   end
 
+  # Prints array with commas as needed
   def print_array(plural, single, indent, array)
   # Sometimes new games have empty fields.
   # Don't do anything if array is empty.
