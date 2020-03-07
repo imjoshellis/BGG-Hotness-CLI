@@ -15,17 +15,21 @@ Description
 
 Add this line to your application's Gemfile:
 
-```ruby
+```bash
 gem 'test-cli'
 ```
 
 And then execute:
 
-    bundle
+```bash
+bundle
+```
 
 Or install it yourself as:
 
-    gem install test-cli
+```bash
+gem install test-cli
+```
 
 ## Usage
 
