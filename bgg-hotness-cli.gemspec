@@ -1,10 +1,9 @@
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "test/cli/version"
 
 Gem::Specification.new do |spec|
   spec.name = "bgg-hotness-cli"
-  spec.version = Test::Cli::VERSION
+  spec.version = "0.1.0"
   spec.authors = ["'Josh Ellis'"]
   spec.email = ["'joshe523@gmail.com'"]
 
