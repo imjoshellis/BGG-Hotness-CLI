@@ -17,4 +17,19 @@ class Scraper
       Game.new(name, id, year, rank)
     end
   end
+
+  def get_details(game)
+    game.description = @doc.css('description').text
+    game.minplayers = @doc.css('minplayers')[0]['value']
+    game.maxplayers = @doc.css('maxplayers')[0]['value']
+    game.minplaytime = @doc.css('minplaytime')[0]['value'] 
+    game.maxplaytime = @doc.css('maxplaytime')[0]['value'] 
+    game.minage = @doc.css('minage')[0]['value'] 
+    # game.category = @doc.css('link').select{|link| link[0]['type'] == 'boardgamecategory'} 
+            # @category = ["cat1","cat2"]
+            # @mechanic = ["mech1","mech2"]
+            # @publisher = ["pub1", "pub2"]
+            # @designer = ["designer1", "designer2"]
+    game.url = "https://boardgamegeek.com/boardgame/#{game.id}"
+  end
 end

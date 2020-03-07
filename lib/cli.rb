@@ -18,8 +18,16 @@ class CommandLineInterface
   end
 
   def game_details(rank,invalid_input=false)
+    game = Game.all.select{|game| game.rank == rank}.first
+    game.get_details
     puts ""
-    puts "--- game details here ---"
+    puts "#{game.name}"
+    if game.description.size < 64 
+      puts "#{game.description}"
+    else
+      puts "#{game.description[0..64]}..."
+    end
+    puts game.url
     puts "Enter 'q' to quit or '0' to go back to the list:"
     puts "ERROR: Invalid input, try again" if invalid_input == true
     input = gets.chomp
@@ -56,7 +64,7 @@ class CommandLineInterface
         list_games(false) 
       end
     elsif input.to_i <= @end_rank && input.to_i >= @start_rank
-      game_details(input.to_i)
+      game_details(input)
     elsif input.downcase == 'q'
       puts "Goodbye!"
       return
