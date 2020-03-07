@@ -1,6 +1,7 @@
 require_relative './scraper.rb'
 require_relative './game.rb'
 require_relative './wrap.rb'
+require 'launchy'
 
 class CommandLineInterface
 
@@ -43,22 +44,19 @@ class CommandLineInterface
     end
     puts 
 
+    puts "Options:"
+
+    # Check to see if user is at end of list and display appropriate message
+    puts @end_rank != 50 ? "→ 0 to see the next 10 games on the list" : "→ 0 to see the start of the list"
+
+    # Give user a range of #s to input based on current list
+    puts "→ #{@start_rank}–#{@end_rank} to see a game's details"
+    puts "→ Q to quit"
+
     # Prompt user input
-    puts "→ Enter # to see a game's details"
-    puts "→ Enter 0 to see the next 10 titles"
-    puts "→ Enter Q to quit"
-
-    # If invalid_input, display error message and reset @invalid_input
-    if @invalid_input == true
-      puts "ERROR: Invalid input, please try again" 
-      @invalid_input = false
-    end
-
-    # Get user input
-    @input = gets.chomp
+    get_input
 
     # Parse user input
-    
     if @input == "0"
       # If user inputs 0 for the next part of the list...
       if @end_rank == 50
@@ -160,19 +158,14 @@ class CommandLineInterface
   # Input loop when in @game's details
   def details_input
     # Prompt user input
-    puts "→ Enter 0 to return to the list"
-    puts "→ Enter 1 to see full description"
-    puts "→ Enter 2 to see publisher & designer"
-    puts "→ Enter Q to quit"
+    puts "Options:"
+    puts "→ 0 to return to the list"
+    puts "→ 1 to see full description"
+    puts "→ 2 to see publisher & designer"
+    puts "→ 3 to open BGG page in your default browser"
+    puts "→ Q to quit"
 
-    # If @invalid_input is true, display error message & reset @invalid_input
-    if @invalid_input == true
-      puts "ERROR: Invalid input, please try again" 
-      @invalid_input = false
-    end
-
-    # Get user input
-    @input = gets.chomp
+    get_input
 
     # Parse user input
     if @input == "0" 
@@ -184,11 +177,18 @@ class CommandLineInterface
     elsif @input == "2"
       # If they choose 2, print publisher and designer
       publisher_designer
+    elsif @input == "3"
+      # If they choose 3, open URL with launchy
+      puts
+      puts "Attempting to open URL..."
+      puts
+      Launchy.open(@game.url)
+      game_details
     elsif @input.downcase == "q" 
       # If they quit, run "goodbye" method
       goodbye
     else
-      # If input doesn't work, run method again with error message.
+      # If input doesn't work, return to details and give error message.
       @invalid_input = true
       game_details
     end
@@ -223,6 +223,21 @@ class CommandLineInterface
       # print the output, truncate if too long
       puts output.size < 120 ? wrap(output, @indent) : wrap("#{output[0..120]}...",@indent)
     end
+  end
+
+  # Get user input
+  def get_input
+    # If @invalid_input is true, display error message & reset @invalid_input
+    if @invalid_input == true
+      puts "ERROR: Invalid input, please try again" 
+      @invalid_input = false
+    end
+
+    puts
+    puts "Type your choice and press enter:"
+
+    # Get user input
+    @input = gets.chomp
   end
 
   # Runs program by doing a scrape of the hot list,
