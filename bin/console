@@ -3,7 +3,5 @@
 require "bundler/setup"
 require "cli"
 
+# Everything happens in a single instance of CommandLineInterface
 CommandLineInterface.new.run
-
-# require "irb"
-# IRB.start(__FILE__)
