@@ -3,8 +3,7 @@
 require "bundler/setup"
 require "cli"
 
-require "pry"
-Pry.start
+CommandLineInterface.new.run
 
 # require "irb"
 # IRB.start(__FILE__)
