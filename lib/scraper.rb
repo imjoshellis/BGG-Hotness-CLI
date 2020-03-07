@@ -7,7 +7,7 @@ class Scraper
 
   # Initialize with an API path to open
   def initialize(path)
-    @doc = Nokogiri::HTML(open(path))
+    @doc = Nokogiri::HTML(URI.open(path))
   end
 
   # Get the initial list of games from the hotness list.
