@@ -2,9 +2,9 @@
 
 ## Todo
 
-[ ] Set up Gem
-[ ] Write description
-[ ] Write usage
+- [ ] Set up Gem
+- [ ] Write description
+- [ ] Write usage
 
 ## Installation
 
