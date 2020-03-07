@@ -1,5 +1,6 @@
-require_relative '../lib/scraper.rb'
-require_relative '../lib/game.rb'
+require_relative './scraper.rb'
+require_relative './game.rb'
+require_relative './wrap.rb'
 
 class CommandLineInterface
   def run
@@ -21,13 +22,12 @@ class CommandLineInterface
     game = Game.all.select{|game| game.rank == rank}.first
     game.get_details
     puts ""
-    puts "#{game.name}"
-    if game.description.size < 64 
-      puts "#{game.description}"
-    else
-      puts "#{game.description[0..64]}..."
-    end
-    puts game.url
+    puts "TITLE: #{game.name}"
+    puts "DESCRIPTION:"
+    puts wrap("#{game.description[0..240]}...")
+    puts "URL: #{game.url}"
+    puts "INFO: #{game.minplayers}–#{game.maxplayers} players • #{game.minplaytime}–#{game.maxplaytime} minutes • ages #{game.minage}+"
+    # puts "PUBLISHER(S):" + game.publisher.each{|publisher| publisher + " "}
     puts "Enter 'q' to quit or '0' to go back to the list:"
     puts "ERROR: Invalid input, try again" if invalid_input == true
     input = gets.chomp

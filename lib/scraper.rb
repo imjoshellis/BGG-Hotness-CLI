@@ -19,7 +19,7 @@ class Scraper
   end
 
   def get_details(game)
-    game.description = @doc.css('description').text
+    game.description = Nokogiri::HTML.parse(@doc.css('description').text).text
     game.minplayers = @doc.css('minplayers')[0]['value']
     game.maxplayers = @doc.css('maxplayers')[0]['value']
     game.minplaytime = @doc.css('minplaytime')[0]['value'] 
