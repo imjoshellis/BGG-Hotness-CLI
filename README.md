@@ -2,7 +2,7 @@
 
 ## Todo
 
-- [ ] Set up Gem
+- [ ] Set up Gem (fix gemspec)
 - [ ] Write description
 - [ ] Write usage
 - [ ] Add tags on GH

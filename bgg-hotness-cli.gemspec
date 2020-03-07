@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["'joshe523@gmail.com'"]
 
   spec.summary = "Quickly browse the hottest games on BoardGameGeek"
-  spec.description = "Command Line Interface that utilizes the API of BoardGameGeek.com"
+  spec.description = "Command Line Interface that utilizes the API of BoardGameGeek.com to list hot boardgames."
   spec.homepage = "https://github.com/imjoshellis/bgg-hotness-cli"
   spec.license = "MIT"
 
@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
     spec.metadata["allowed_push_host"] = "http://mygemserver.com'"
 
     spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = "https://github.com/imjoshellis/bgg-hotness-cli"
+    spec.metadata["source_code_uri"] = "https://github.com/imjoshellis/BGG-Hotness-CLI/blob/master/CHANGELOG.md"
     spec.metadata["changelog_uri"] = "https://github.com/imjoshellis/bgg-hotness-cli/CHANGELOG.md"
   else
     raise "RubyGems 2.0 or newer is required to protect against " \
