@@ -5,6 +5,11 @@
 - [ ] Set up Gem
 - [ ] Write description
 - [ ] Write usage
+- [ ] Add tags on GH
+
+## Description
+
+Description
 
 ## Installation
 
@@ -23,6 +28,8 @@ Or install it yourself as:
     gem install test-cli
 
 ## Usage
+
+Usage
 
 ## Development
 
