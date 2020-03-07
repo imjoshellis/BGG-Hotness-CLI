@@ -1,7 +1,8 @@
-require "nokogiri"
+require 'nokogiri'
+require 'open-uri'
 
 class Scraper
   def initialize(path)
-    @doc = Nokogiri::HTML()
+    @doc = Nokogiri.HTML(open(path))
   end
 end

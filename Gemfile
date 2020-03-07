@@ -5,4 +5,5 @@ gemspec
 gem "pry"
 gem "nokogiri", "1.10.4"
 gem "rspec"
-gem "standard", group: [:development, :test]
+gem "solargraph"
+gem 'prettier' # bundle exec rbprettier --write '**/*.rb'
