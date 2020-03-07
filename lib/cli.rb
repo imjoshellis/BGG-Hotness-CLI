@@ -9,59 +9,33 @@ class CommandLineInterface
   end
 
   def game_details(rank,invalid_input=false)
-    indent = "· "
-    game = Game.all.select{|game| game.rank == rank}.first
-    game.get_details
+    indent = "· " # variable for indentation string to make it easy to change
+    game = Game.all.select{|game| game.rank == rank}.first # find the game whos rank matches the selected rank
+    game.get_details # this method checks to see if details exist, and scrapes details if needed
     puts ""
     puts "#{game.rank}. #{game.name} (#{game.year})"
+    puts "#{game.minplayers}–#{game.maxplayers} players • #{game.minplaytime}–#{game.maxplaytime} minutes • ages #{game.minage}+"
+    puts "#{game.url}"
+    puts
     puts "DESCRIPTION:"
-    puts wrap("#{game.description[0..240]}...",indent)
-    puts "URL:"
-    puts "#{indent}#{game.url}"
-    puts "INFO:"
-    puts "#{indent}#{game.minplayers}–#{game.maxplayers} players • #{game.minplaytime}–#{game.maxplaytime} minutes • ages #{game.minage}+"
-    puts game.category.size > 1 ?  "CATEGORIES: " : "CATEGORY: "
-    print "#{indent}" # indent categories
-    game.category.each_with_index do |category,idx| 
-      print category
-      # if there's more than one category and this isn't the last item, add commas
-      if category != game.category.last && game.category.size > 1
-        # print an & before last item
-        if idx == game.category.size - 2 
-          print ", & " 
-        # otherwise, just print a comma and space
-        else 
-          print ", " 
-        end
-      end
-    end
+    puts wrap("#{game.description[0..180]}...",indent) # use wrap function to add indentation & word wrap
     puts
-    puts game.mechanic.size > 1 ?  "MECHANICS: " : "MECHANIC: "
-    print "#{indent}" # indent categories
-    game.mechanic.each_with_index do |mechanic,idx| 
-      print mechanic
-      # if there's more than one category and this isn't the last item, add commas
-      if mechanic != game.mechanic.last && game.mechanic.size > 1
-        # print an & before last item
-        if idx == game.mechanic.size - 2 
-          print ", & " 
-        # otherwise, just print a comma and space
-        else 
-          print ", " 
-        end
-      end
-    end
+    # use print_array method to print arrays
+    print_array("categories", "category", indent, game.category) 
+    print_array("mechanics", "mechanic", indent, game.mechanic)
+    print_array("publishers", "publisher", indent, game.publisher)
+    print_array("designers", "designer", indent, game.designer)
     puts
-    puts "Enter 'q' to quit or '0' to go back to the list:"
-    puts "ERROR: Invalid input, try again" if invalid_input == true
+    puts "→ Enter 0 to return to the list"
+    puts "→ Enter Q to quit"
+    puts "ERROR: Invalid input, please try again" if invalid_input == true
     input = gets.chomp
-    if input == "0"
+    if input == "0" # If they choose 0, return to the list
       list_games(false) 
-    elsif input.downcase == "q"
-      puts "Goodbye!"
-      return
+    elsif input.downcase == "q" # If they quit, run "goodbye" method
+      goodbye
     else
-      game_details(rank,true) 
+      game_details(rank,true) # If input doesn't work, run method again with error message.
     end
   end
 
@@ -73,9 +47,11 @@ class CommandLineInterface
       puts " #{game.rank}. | #{game.year} | #{game.name}" if game.rank.to_i < 10
       puts "#{game.rank}. | #{game.year} | #{game.name}" if game.rank.to_i >= 10
     end
-    puts ""
-    puts "Enter a game's # to see its details, '0' to see the next 10 titles, or 'q' to quit:"
-    puts "ERROR: Invalid input, try again" if invalid_input == true
+    puts 
+    puts "→ Enter # to see a game's details"
+    puts "→ Enter 0 to see the next 10 titles"
+    puts "→ Enter Q to quit"
+    puts "ERROR: Invalid input, please try again" if invalid_input == true
     input = gets.chomp
     if input == "0"
       if @end_rank == 50
@@ -90,14 +66,40 @@ class CommandLineInterface
     elsif input.to_i <= @end_rank && input.to_i >= @start_rank
       game_details(input)
     elsif input.downcase == 'q'
-      puts "Goodbye!"
-      return
+      goodbye
     else
-      list_games(true)
+      list_games(true) # If input doesn't work, run method again with error message.
     end
+  end
 
+  def goodbye
+    puts
+    puts "Goodbye!"
+    puts
+    return
+  end
+
+  def print_array(plural, single, indent, array)
+  if array.size != 0 # sometimes new games have empty fields
+    puts array.size > 1 ?  "#{plural.upcase}: " : "#{single.upcase}: "
+    output = "" # variable for holding output string
     
-      
+      array.each_with_index do |item,idx| 
+        output += item
+        # if there's more than one item and this isn't the last item, add commas
+        if item != array.last && array.size > 1
+          # print an & before last item
+          if idx == array.size - 2 
+            output += ", & " 
+          # otherwise, just print a comma and space
+          else 
+            output += ", " 
+          end
+        end
+      end
+      # print the output, truncate if too long
+      puts output.size < 120 ? wrap(output, indent) : wrap("#{output[0..120]}...",indent)
+    end
   end
 
   def run

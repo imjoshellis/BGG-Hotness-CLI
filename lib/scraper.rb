@@ -27,10 +27,8 @@ class Scraper
     game.minage = @doc.css('minage')[0]['value'] 
     game.category = @doc.css('link').select{|link| link['type']=="boardgamecategory"}.collect{|link| link['value']}
     game.mechanic = @doc.css('link').select{|link| link['type']=="boardgamemechanic"}.collect{|link| link['value']}
-            # @category = ["cat1","cat2"]
-            # @mechanic = ["mech1","mech2"]
-            # @publisher = ["pub1", "pub2"]
-            # @designer = ["designer1", "designer2"]
+    game.publisher = @doc.css('link').select{|link| link['type']=="boardgamepublisher"}.collect{|link| link['value']}
+    game.designer = @doc.css('link').select{|link| link['type']=="boardgamedesigner"}.collect{|link| link['value']}
     game.url = "https://boardgamegeek.com/boardgame/#{game.id}"
   end
 end

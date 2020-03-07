@@ -17,8 +17,8 @@ class Game
     end
 
     def get_details
-        if @description.nil?
-            @details_scraper = Scraper.new("https://boardgamegeek.com/xmlapi2/thing?id=#{@id}").get_details(self)
+        if @description.nil? # If the description is nil, it needs to be scraped. Otherwise, all data should be in memory, so skip this.
+            Scraper.new("https://boardgamegeek.com/xmlapi2/thing?id=#{@id}").get_details(self)
         end
     end
 end
