@@ -22,7 +22,7 @@ class BggHotnessCLI::Page
     # Displays list of games between @start_rank and @end_rank
 
     # Print header
-    BggHotnessCLI.header
+    BggHotnessCLI::CLI.header
     puts "The top #{@start_rank}–#{@end_rank} hot games on BGG."
     puts
 
@@ -70,7 +70,7 @@ class BggHotnessCLI::Page
       end
     elsif @input == 'quit'
       # If they quit, run "goodbye" method
-      BggHotnessCLI.goodbye
+      BggHotnessCLI::CLI.goodbye
     else
       # Otherwise, @input is a game. Display its details.
       @input.display_details

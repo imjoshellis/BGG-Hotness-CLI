@@ -19,7 +19,7 @@ class BggHotnessCLI::Game
 
   def header
     # Print header
-    BggHotnessCLI.header
+    BggHotnessCLI::CLI.header
     puts 
     puts "#{@rank}. #{@name} (#{@year})"
   end
@@ -144,7 +144,7 @@ class BggHotnessCLI::Game
       display_details
     elsif @input == choices.last
       # If they quit, run "goodbye" method
-      BggHotnessCLI.goodbye
+      BggHotnessCLI::CLI.goodbye
     end
   end
 
