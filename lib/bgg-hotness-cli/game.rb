@@ -65,43 +65,37 @@ class Game
     puts
 
     # Use print_array method to print arrays (with wrap method)
-    print_array("categories", "category", @category) 
-    print_array("mechanics", "mechanic", @mechanic)
+    print_array("categories", "category", @category, @indent) 
+    print_array("mechanics", "mechanic", @mechanic, @indent)
 
     # See what user wants to do next
     details_input
   end
 
-  # Prints array with commas as needed
-  def print_array(plural, single, array)
-  # Sometimes new games have empty fields.
-  # Don't do anything if array is empty.
-  if array.size != 0 
-    puts array.size > 1 ?  "#{plural.upcase}: " : "#{single.upcase}: "
-    
-    # Initialize variable for holding output string
-    output = "" 
-      array.each_with_index do |item,idx| 
-        output += item
+  # Displays full description
+  def full_description
+    header
 
-        # if there's more than one item and this isn't the last item, add commas
-        if item != array.last && array.size > 1
+    # Use wrap method to add indentation & word wrap
+    puts "DESCRIPTION:"
+    puts wrap("#{@description}",@indent) 
+    puts 
 
-          # print an & before last item
-          if idx == array.size - 2 
-            output += ", & " 
+    # See what user wants to do next
+    details_input
+  end
 
-          # otherwise, just print a comma and space
-          else 
-            output += ", " 
-          end
-        end
-      end
+  # Displays publisher(s) and designer(s)
+  def publisher_designer
+    header
 
-      # print the output with word-wrapping
-      puts wrap(output, @indent)
-      puts
-    end
+    # Use print_array method to print arrays (with wrap method)
+    print_array("publishers", "publisher", @publisher, @indent)
+    print_array("designers", "designer", @designer, @indent)
+    puts 
+
+    # See what user wants to do next
+    details_input
   end
 
   def details_input
@@ -152,32 +146,6 @@ class Game
       # If they quit, run "goodbye" method
       BggHotnessCLI.goodbye
     end
-  end
-
-  # Displays full description
-  def full_description
-    header
-
-    # Use wrap method to add indentation & word wrap
-    puts "DESCRIPTION:"
-    puts wrap("#{@description}",@indent) 
-    puts 
-
-    # See what user wants to do next
-    details_input
-  end
-
-  # Displays publisher(s) and designer(s)
-  def publisher_designer
-    header
-
-    # Use print_array method to print arrays (with wrap method)
-    print_array("publishers", "publisher", @publisher)
-    print_array("designers", "designer", @designer)
-    puts 
-
-    # See what user wants to do next
-    details_input
   end
 
 end

@@ -1,6 +1,6 @@
 require_relative './bgg-hotness-cli/scraper.rb'
 require_relative './bgg-hotness-cli/game.rb'
-require_relative './bgg-hotness-cli/wrap.rb'
+require_relative './bgg-hotness-cli/helpers.rb'
 require_relative './bgg-hotness-cli/page.rb'
 require 'launchy'
 require 'tty-prompt'

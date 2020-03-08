@@ -72,7 +72,7 @@ class Page
       # If they quit, run "goodbye" method
       BggHotnessCLI.goodbye
     else
-      # Otherwise, navigate to selected game
+      # Otherwise, @input is a game. Display its details.
       @input.display_details
     end
   
