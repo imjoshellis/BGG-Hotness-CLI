@@ -4,7 +4,7 @@
 
 BGG Hotness CLI is a fast command line interface for checking the top 50 hot boardgames of BoardGameGeek.com's API.
 
-It was built by @imjoshellis as a part of Flatiron School's Software Engineering program.
+It was built by [@imjoshellis](https://github.com/imjoshellis) as a part of Flatiron School's Software Engineering program.
 
 ## Installation
 
