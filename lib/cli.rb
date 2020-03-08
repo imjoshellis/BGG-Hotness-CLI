@@ -6,12 +6,6 @@ require 'launchy'
 require 'tty-prompt'
 
 class CommandLineInterface
-  # Displays welcome message
-  def welcome
-    puts ""
-    puts "Hi, welcome to the BGG Hotness List!"
-  end
-
   # Displays goodbye and ends program
   def self.goodbye
     puts
@@ -26,8 +20,8 @@ class CommandLineInterface
     puts "BGG Hotness CLI"
   end
 
-  # Runs program by doing a scrape of the hot list,
-  # printing welcome message, setting the list to 1-10,
+  # Runs program by creating empty pages,
+  # doing a scrape of the hot list, adding games to pages,
   # and printing the first 10 items on the list.
   def run
     # Create empty pages
