@@ -31,14 +31,14 @@ gem install bgg-hotness-cli
 
 Run `bin/bgg-hotness-cli` in your terminal for a quickstart.
 
-Or `require 'bgg-hotness-cli` and create a `BggHotnessCLI` object with `.new.run` methods wherever you want it.
+Or `require 'bgg-hotness-cli` and create run with `BggHotnessCLI::CLI.run`.
 
 For example:
 
 ```ruby
 irb
 require 'bgg-hotness-cli'
-BggHotnessCLI.new.run
+BggHotnessCLI::CLI.run
 ```
 
 Once you're in the interface, use ↑/↓ arrows to navigate between options and press Enter to select your choice.
