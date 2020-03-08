@@ -1,6 +1,8 @@
 # BGG Hotness CLI
 
-[![Run on Repl.it](https://repl.it/badge/github/imjoshellis/BGG-Hotness-CLI)](https://repl.it/github/imjoshellis/BGG-Hotness-CLI)
+## Quickstart
+
+Want to test it without installing on your machine? This repo is available on Repl.it: [![Run on Repl.it](https://repl.it/badge/github/imjoshellis/BGG-Hotness-CLI)](https://repl.it/github/imjoshellis/BGG-Hotness-CLI)
 
 ## Todo
 
