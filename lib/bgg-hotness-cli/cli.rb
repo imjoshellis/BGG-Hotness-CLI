@@ -16,7 +16,7 @@ class BggHotnessCLI::CLI
   # Runs program by creating empty pages,
   # doing a scrape of the hot list, adding games to pages,
   # and printing the first 10 items on the list.
-  def run
+  def self.run
     # Create empty pages
     BggHotnessCLI::Page.make_pages
 
