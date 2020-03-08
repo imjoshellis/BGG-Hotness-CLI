@@ -1,7 +1,4 @@
-require_relative './bgg-hotness-cli/scraper.rb'
-require_relative './bgg-hotness-cli/game.rb'
-require_relative './bgg-hotness-cli/helpers.rb'
-require_relative './bgg-hotness-cli/page.rb'
+
 require 'launchy'
 require 'tty-prompt'
 
@@ -36,3 +33,8 @@ class BggHotnessCLI
 
   # NOTE: #run must be last so other methods can load.
 end
+
+require_relative './bgg-hotness-cli/scraper.rb'
+require_relative './bgg-hotness-cli/game.rb'
+require_relative './bgg-hotness-cli/helpers.rb'
+require_relative './bgg-hotness-cli/page.rb'
