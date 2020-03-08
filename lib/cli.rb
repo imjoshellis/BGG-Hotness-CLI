@@ -130,7 +130,6 @@ class CommandLineInterface
     # Use print_array method to print arrays (with wrap method)
     print_array("categories", "category", @game.category) 
     print_array("mechanics", "mechanic", @game.mechanic)
-    puts
 
     # See what user wants to do next
     details_input
