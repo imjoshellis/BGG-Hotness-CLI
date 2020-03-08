@@ -4,7 +4,6 @@ gemspec
 
 gem 'bundler'
 gem 'pry'
-gem 'nokogiri', '1.10.9'
-gem 'rspec'
+gem 'nokogiri'
 gem 'launchy'
 gem 'tty-prompt'
