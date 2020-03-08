@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 12.3.3"
-  spec.add_development_dependency "nokogiri", "~> 1.10.4"
-  spec.add_development_dependency "launchy", "~> 2.5.0"
-  spec.add_development_dependency "tty-prompt", "~> 0.20.0"
+  spec.add_runtime_dependency "nokogiri", "~> 1.10.4"
+  spec.add_runtime_dependency "launchy", "~> 2.5.0"
+  spec.add_runtime_dependency "tty-prompt", "~> 0.20.0"
 end
