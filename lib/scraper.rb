@@ -22,7 +22,10 @@ class Scraper
       year = item.css('yearpublished')[0]['value']
 
       # Create a new instance of Game with item data
-      Game.new(name, id, year, rank)
+      game = Game.new(name, id, year, rank)
+
+      # Put game into its page
+      Page.add_game(game)
     end
 
   end
