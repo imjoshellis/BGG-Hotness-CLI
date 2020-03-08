@@ -11,7 +11,7 @@ It was built by [@imjoshellis](https://github.com/imjoshellis) as a part of Flat
 Add this line to your application's Gemfile:
 
 ```bash
-gem "bgg-hotness-cli", :git => "git://github.com/imjoshellis/bgg-hotness-cli.git"
+gem "bgg-hotness-cli"
 
 ```
 
@@ -21,11 +21,23 @@ And then execute:
 bundle
 ```
 
+Or if you prefer:
+
+```bash
+gem install bgg-hotness-cli
+```
+
 ## Usage
 
-Run `bin/bgg-hotness-cli` in your terminal for a quickstart. Or add a new `BggHotnessCLI` object with `.new.run` methods wherever you want it:
+Run `bin/bgg-hotness-cli` in your terminal for a quickstart.
+
+Or `require 'bgg-hotness-cli` and create a `BggHotnessCLI` object with `.new.run` methods wherever you want it.
+
+For example:
 
 ```ruby
+irb
+require 'bgg-hotness-cli'
 BggHotnessCLI.new.run
 ```
 
