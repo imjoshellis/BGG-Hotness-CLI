@@ -161,7 +161,7 @@ class CommandLineInterface
     puts "Options:"
     puts "→ 0 to return to the list"
     puts "→ 1 to see full description"
-    puts "→ 2 to see publisher & designer"
+    puts "→ 2 to see publisher(s) & designer(s)"
     puts "→ 3 to open BGG page in your default browser"
     puts "→ Q to quit"
 
@@ -220,8 +220,8 @@ class CommandLineInterface
         end
       end
 
-      # print the output, truncate if too long
-      puts output.size < 120 ? wrap(output, @indent) : wrap("#{output[0..120]}...",@indent)
+      # print the output with word-wrapping
+      puts wrap(output, @indent)
     end
   end
 
