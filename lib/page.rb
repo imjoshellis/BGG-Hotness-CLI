@@ -89,16 +89,17 @@ class Page
   end
 
   # Class Methods
-  def self.add_game(game)
-    # when a game is added, put it into the right page.
-    # TODO: This loops EVERY time a game is added... could be refactored 
-    self.all.each do |page|
-      if game.rank.to_i >= page.start_rank && game.rank.to_i <= page.end_rank
-        page.games[(game.rank.to_i - 1) % 10] = game
-        game.page = page
-      end
-    end
-  end
+
+  # Made obsolete by Game.new
+  # def self.add_game(game)
+  #   # when a game is added, put it into the right page.
+  #   self.all.each do |page|
+  #     if game.rank.to_i >= page.start_rank && game.rank.to_i <= page.end_rank
+  #       page.games[(game.rank.to_i - 1) % 10] = game
+  #       game.page = page
+  #     end
+  #   end
+  # end
 
   # Create 5 pages of 10 games
   def self.make_pages
@@ -110,6 +111,5 @@ class Page
       _end_rank   += 10
     end
   end
-
   
 end

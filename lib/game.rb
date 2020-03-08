@@ -7,13 +7,19 @@ class Game
     @name = name
     @id = id
     @year = year
-    @rank = rank   
+    @rank = rank
+
+    # Calculate page index of Page.all[]
+    page_index = ((@rank.to_i - 1) / 10).floor
+    # Put page into its game
+    @page = Page.all[page_index]
     # Put game into its page
-    Page.add_game(self)
-    self.class.all << self # Add each game to SSOT
+    Page.all[page_index].games << self
+    # Add each game to game array
+    self.class.all << self 
   end
 
-  @@all = [] # SSOT
+  @@all = [] 
 
   def self.all
       @@all
