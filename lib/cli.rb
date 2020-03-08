@@ -2,6 +2,7 @@ require_relative './scraper.rb'
 require_relative './game.rb'
 require_relative './wrap.rb'
 require 'launchy'
+require 'tty-prompt'
 
 class CommandLineInterface
 
@@ -20,13 +21,26 @@ class CommandLineInterface
   end
 
   def separator
+    puts "\e[H\e[2J"
     puts 
-    puts "• • •"
-    puts
+    puts "BGG Hotness CLI"
+    if @listview 
+      # When in list view, print this header
+      puts "The top #{@start_rank}–#{@end_rank} hot games on BGG."
+      puts
+    else
+      # When in details view, print this
+      puts 
+      puts "#{@game.rank}. #{@game.name} (#{@game.year})"
+    end
+    
   end
 
   # Displays list of games between @start_rank and @end_rank
   def list_games
+
+    # Variable for header
+    @listview = true
 
     # Print separator
     separator
@@ -87,6 +101,9 @@ class CommandLineInterface
   # Displays details of a chosen game
   def game_details
 
+    # Variable for header
+    @listview = false
+
     # Variable for indentation string to make it easy to change
     @indent = "· " 
 
@@ -100,9 +117,6 @@ class CommandLineInterface
 
     # Print separator
     separator
-
-    # 2. Game Name (2020)
-    puts "#{@game.rank}. #{@game.name} (#{@game.year})"
 
     # 2-4 players • 60-90 minutes • ages 12+
     puts "#{@game.minplayers}–#{@game.maxplayers} players • #{@game.minplaytime}–#{@game.maxplaytime} minutes • ages #{@game.minage}+"
