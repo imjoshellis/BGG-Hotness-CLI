@@ -1,9 +1,4 @@
-require_relative './scraper.rb'
-require_relative './game.rb'
-require_relative './wrap.rb'
-require_relative './page.rb'
-require 'launchy'
-require 'tty-prompt'
+
 
 class CommandLineInterface
   # Displays goodbye and ends program

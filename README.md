@@ -1,11 +1,5 @@
 # BGG Hotness CLI
 
-## Quickstart
-
-[![Run on Repl.it](https://repl.it/badge/github/imjoshellis/BGG-Hotness-CLI)](https://repl.it/github/imjoshellis/BGG-Hotness-CLI)
-
-Want to test it without installing on your machine? This repo is [available on Repl.it](https://repl.it/github/imjoshellis/BGG-Hotness-CLI)
-
 ## Todo
 
 - [ ] Set up Gem (fix gemspec)

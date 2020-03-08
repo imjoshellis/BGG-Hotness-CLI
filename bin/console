@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "cli"
+require "bgg-hotness-cli"
 
 # Everything happens in a single instance of CommandLineInterface
 CommandLineInterface.new.run

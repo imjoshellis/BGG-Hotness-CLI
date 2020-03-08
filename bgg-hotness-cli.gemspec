@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.name = "bgg-hotness-cli"
   spec.version = "0.1.0"
   spec.authors = ["'Josh Ellis'"]
-  spec.email = ["'joshe523@gmail.com'"]
+  spec.email = ['joshe523@gmail.com']
 
   spec.summary = "Quickly browse the hottest games on BoardGameGeek"
   spec.description = "Command Line Interface that utilizes the API of BoardGameGeek.com to list hot boardgames."
