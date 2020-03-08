@@ -107,11 +107,16 @@ class CommandLineInterface
     # Find the first game that matches the selected string based off its rank
     @game = Game.all.select{|game| game.rank == @input.split('.')[0].strip}.first 
     
+    # Print loading message. 
+    # This is cleared by separator after load finishes,
+    # and generally won't be on the screen for long.
+    puts
+    puts "Loading details..."
+    puts
+
     # Check to see if details exist, and scrapes if needed
     @game.get_details 
     
-    # Print details
-
     # Print separator
     separator
 
