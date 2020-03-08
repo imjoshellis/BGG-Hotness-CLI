@@ -7,7 +7,9 @@ class Game
     @name = name
     @id = id
     @year = year
-    @rank = rank 
+    @rank = rank   
+    # Put game into its page
+    Page.add_game(self)
     self.class.all << self # Add each game to SSOT
   end
 
@@ -15,6 +17,13 @@ class Game
 
   def self.all
       @@all
+  end
+
+  def header
+    # Print header
+    CommandLineInterface.header
+    puts 
+    puts "#{@rank}. #{@name} (#{@year})"
   end
 
     # Get the details from the game's details page via API
@@ -43,11 +52,7 @@ class Game
     get_details 
     @back_to_details = false
     
-    # Print header
-    CommandLineInterface.header
-    puts 
-    puts "#{@game.rank}. #{@game.name} (#{@game.year})"
-    
+    header
 
     # 2-4 players • 60-90 minutes • ages 12+
     puts "#{@minplayers}–#{@maxplayers} players • #{@minplaytime}–#{@maxplaytime} minutes • ages #{@minage}+"
@@ -66,7 +71,7 @@ class Game
     print_array("mechanics", "mechanic", @mechanic)
 
     # See what user wants to do next
-    details_input(false)
+    details_input
   end
 
   # Prints array with commas as needed
@@ -140,7 +145,7 @@ class Game
       puts
       Launchy.open(@url)
       @input = @rank # Set input to rank so correct game is chosen
-      game_details
+      display_details
     elsif @input == choices[4] && @back_to_details
       # If they choose back to game details, go back to game details
       @back_to_details = false
@@ -153,9 +158,7 @@ class Game
 
   # Displays full description
   def full_description
-
-    # Print separator
-    separator
+    header
 
     # Use wrap method to add indentation & word wrap
     puts "DESCRIPTION:"
@@ -168,9 +171,7 @@ class Game
 
   # Displays publisher(s) and designer(s)
   def publisher_designer
-    
-    # Print separator
-    separator
+    header
 
     # Use print_array method to print arrays (with wrap method)
     print_array("publishers", "publisher", @publisher)

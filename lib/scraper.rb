@@ -23,9 +23,6 @@ class Scraper
 
       # Create a new instance of Game with item data
       game = Game.new(name, id, year, rank)
-
-      # Put game into its page
-      Page.add_game(game)
     end
 
   end

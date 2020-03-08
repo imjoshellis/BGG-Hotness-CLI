@@ -95,7 +95,7 @@ class Page
     self.all.each do |page|
       if game.rank.to_i >= page.start_rank && game.rank.to_i <= page.end_rank
         page.games[(game.rank.to_i - 1) % 10] = game
-        game.page = self
+        game.page = page
       end
     end
   end
