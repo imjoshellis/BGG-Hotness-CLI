@@ -1,7 +1,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-class Scraper
+class BggHotnessCLI::Scraper
 
   # Initialize with an API path to open
   def initialize(path)
@@ -20,7 +20,7 @@ class Scraper
       year = item.css('yearpublished')[0]['value']
 
       # Create a new instance of Game with item data
-      game = Game.new(name, id, year, rank)
+      game = BggHotnessCLI::Game.new(name, id, year, rank)
     end
 
   end

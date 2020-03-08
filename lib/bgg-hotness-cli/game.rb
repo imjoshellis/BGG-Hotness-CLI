@@ -1,4 +1,4 @@
-class Game
+class BggHotnessCLI::Game
   attr_accessor :page, :description, :minplayers, :maxplayers, :minplaytime, :maxplaytime, :minage, :category, :mechanic, :publisher, :designer, :url
   attr_reader :name, :id, :year, :rank
 
@@ -12,9 +12,9 @@ class Game
     # Calculate page index of Page.all[]
     page_index = ((@rank.to_i - 1) / 10).floor
     # Put page into its game
-    @page = Page.all[page_index]
+    @page = BggHotnessCLI::Page.all[page_index]
     # Put game into its page
-    Page.all[page_index].games << self
+    BggHotnessCLI::Page.all[page_index].games << self
   end
 
   def header
@@ -30,7 +30,7 @@ class Game
     # If the description is nil, it needs to be scraped. 
     # Otherwise, all data should be in memory, so skip this.
     if @description.nil? 
-      Scraper.new("https://boardgamegeek.com/xmlapi2/thing?id=#{@id}").get_details(self)
+      BggHotnessCLI::Scraper.new("https://boardgamegeek.com/xmlapi2/thing?id=#{@id}").get_details(self)
     end
   end
 

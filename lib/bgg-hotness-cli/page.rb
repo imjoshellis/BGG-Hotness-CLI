@@ -1,6 +1,6 @@
 # Each page is a list of 10 games.
 # In total, the app has 5 pages (50 games).
-class Page
+class BggHotnessCLI::Page
   attr_accessor :start_rank, :end_rank, :games, :page_number
   
   @@all = []
@@ -59,14 +59,14 @@ class Page
       # If user selects next part of the list...
       if @end_rank == 50
         # ...if at the end of the list (50), display the first page
-        Page.all[0].display_page
+        BggHotnessCLI::Page.all[0].display_page
       else
         # ...otherwise, display the next page
         # this works because the first page is [0] index,
         # but it's page # is 1, meaning this will show
         # the second page (which is at all[1]).
         # TODO: make this less confusing?
-        Page.all[@page_number].display_page
+        BggHotnessCLI::Page.all[@page_number].display_page
       end
     elsif @input == 'quit'
       # If they quit, run "goodbye" method
@@ -96,7 +96,7 @@ class Page
     _start_rank = 1   # temp local variable
     _end_rank   = 10  # temp local variable
     5.times do 
-      Page.new(_start_rank, _end_rank)
+      BggHotnessCLI::Page.new(_start_rank, _end_rank)
       _start_rank += 10
       _end_rank   += 10
     end
