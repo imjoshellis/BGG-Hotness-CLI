@@ -1,4 +1,5 @@
-
+require 'nokogiri'
+require 'open-uri'
 require 'launchy'
 require 'tty-prompt'
 

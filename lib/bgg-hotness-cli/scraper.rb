@@ -1,6 +1,3 @@
-require 'nokogiri'
-require 'open-uri'
-
 class BggHotnessCLI::Scraper
 
   # Initialize with an API path to open
