@@ -30,7 +30,6 @@ class CommandLineInterface
     # Scrape list, which creates game instances
     # and adds them to their pages in order.
     Scraper.new("https://www.boardgamegeek.com/xmlapi2/hot?boardgame").game_list
-    welcome
     
     Page.all[0].display_page
   end
