@@ -1,5 +1,7 @@
 # BGG Hotness CLI
 
+[![Run on Repl.it](https://repl.it/badge/github/imjoshellis/BGG-Hotness-CLI)](https://repl.it/github/imjoshellis/BGG-Hotness-CLI)
+
 ## Todo
 
 - [ ] Set up Gem (fix gemspec)
