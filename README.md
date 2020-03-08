@@ -31,7 +31,7 @@ BggHotnessCLI.new.run
 
 Once you're in the interface, use ↑/↓ arrows to navigate between options and press Enter to select your choice.
 
-![screenshot of start page](https://github.com/imjoshellis/bgg-hotness-cli/img/start-page.jpg 'BGG Hotness CLI Start Page')
+![screenshot of start page](https://github.com/imjoshellis/BGG-Hotness-CLI/blob/master/img/start-page.jpg 'BGG Hotness CLI Start Page')
 
 ## Contributing
 
