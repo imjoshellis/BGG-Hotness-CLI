@@ -1,5 +1,5 @@
 class BggHotnessCLI::CLI
-       # Displays goodbye and ends program
+  # Displays goodbye and ends program
   def self.goodbye
     puts
     puts "Goodbye!"
