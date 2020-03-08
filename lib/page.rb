@@ -1,12 +1,5 @@
-require_relative './scraper.rb'
-require_relative './game.rb'
-require_relative './wrap.rb'
-require 'launchy'
-require 'pry'
-require 'tty-prompt'
-
-# each page is a list of 10 games...
-# in total, the app will have 5 pages (50 games)...
+# Each page is a list of 10 games.
+# In total, the app has 5 pages (50 games).
 class Page
   attr_accessor :start_rank, :end_rank, :games, :page_number
   
