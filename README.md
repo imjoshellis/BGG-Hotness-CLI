@@ -16,7 +16,7 @@ Description
 Add this line to your application's Gemfile:
 
 ```bash
-gem 'test-cli'
+gem 'bgg-hotness-cli'
 ```
 
 And then execute:
@@ -28,7 +28,7 @@ bundle
 Or install it yourself as:
 
 ```bash
-gem install test-cli
+gem install bgg-hotness-cli
 ```
 
 ## Usage

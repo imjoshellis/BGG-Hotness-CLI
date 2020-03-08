@@ -1,6 +1,4 @@
-
-
-class CommandLineInterface
+class CLI
   # Displays goodbye and ends program
   def self.goodbye
     puts
