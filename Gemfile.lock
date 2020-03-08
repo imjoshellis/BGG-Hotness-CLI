@@ -57,7 +57,7 @@ PLATFORMS
 
 DEPENDENCIES
   bgg-hotness-cli!
-  bundler (~> 2.0)
+  bundler
   launchy
   nokogiri (= 1.10.9)
   pry
