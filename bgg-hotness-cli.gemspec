@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = "bgg-hotness-cli"
-  spec.version = "0.1.0"
+  spec.version = "0.1.01"
   spec.authors = ["'Josh Ellis'"]
   spec.email = ['joshe523@gmail.com']
 
