@@ -15,14 +15,6 @@ class Game
     @page = Page.all[page_index]
     # Put game into its page
     Page.all[page_index].games << self
-    # Add each game to game array
-    self.class.all << self 
-  end
-
-  @@all = [] 
-
-  def self.all
-      @@all
   end
 
   def header

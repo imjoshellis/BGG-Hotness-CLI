@@ -5,8 +5,6 @@ require 'launchy'
 require 'pry'
 require 'tty-prompt'
 
-# refactoring cli into classes
-
 # each page is a list of 10 games...
 # in total, the app will have 5 pages (50 games)...
 class Page
@@ -26,8 +24,7 @@ class Page
     self.class.all << self
   end
 
-  # Instance Methods
-
+  ## Instance Methods ##
   def display_page
     # Displays list of games between @start_rank and @end_rank
 
@@ -88,7 +85,7 @@ class Page
   
   end
 
-  # Class Methods
+  ## Class Methods ##
 
   # Made obsolete by Game.new
   # def self.add_game(game)
@@ -111,5 +108,5 @@ class Page
       _end_rank   += 10
     end
   end
-  
+
 end
