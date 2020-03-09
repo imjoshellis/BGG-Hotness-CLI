@@ -6,6 +6,8 @@ BGG Hotness CLI is a fast command line interface for checking the top 50 hot boa
 
 It was built by [@imjoshellis](https://github.com/imjoshellis) as a part of Flatiron School's Software Engineering program.
 
+[Watch Demo Video Here](https://www.loom.com/share/1a665f85bd2642bea63d5bb342a8c107)
+
 ## Installation
 
 Add this line to your application's Gemfile:
