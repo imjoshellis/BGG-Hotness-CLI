@@ -25,6 +25,7 @@ class BggHotnessCLI::CLI
     BggHotnessCLI::Scraper.new("https://www.boardgamegeek.com/xmlapi2/hot?boardgame").game_list
     
     BggHotnessCLI::Page.all[0].display_page
+    # BggHotnessCLI::Page.display_all_alphabetized
   end
 
   # NOTE: #run must be last so other methods can load.

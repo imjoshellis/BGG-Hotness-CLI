@@ -17,6 +17,16 @@ class BggHotnessCLI::Page
     self.class.all << self
   end
 
+  def self.display_all_alphabetized
+    all_games = self.all.collect{|page| page.games}
+
+    all_games_sorted = all_games.flatten.sort_by {|game| game.name}
+
+    all_games_sorted.each do |game|
+      puts "#{game.rank}. #{game.name} (#{game.year})"
+    end
+  end
+
   ## Instance Methods ##
   def display_page
     # Displays list of games between @start_rank and @end_rank
